@@ -1,0 +1,134 @@
+﻿<Window x:Class="SZTGUI_K1XVVD_Sandor_Zsombor.Field"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SZTGUI_K1XVVD_Sandor_Zsombor.ViewModel"
+        mc:Ignorable="d"
+        Title="Field" Height="450" Width="800">
+    
+    <Window.DataContext>
+        <local:FieldViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.Background >
+                <ImageBrush ImageSource="pack://application:,,,/Image/ftbFld2.jpg" Stretch="Fill"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="LW" Tag="LW" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+                <Button Grid.Column="1" Width="50" Height="50" VerticalAlignment="Bottom" Content="ST" Tag="ST" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+                <Button Grid.Column="2" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="RW" Tag="RW" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="CM" Tag="CM" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+                <Button Grid.Column="1" Width="50" Height="50" Content="CM" Tag="CM" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+                <Button Grid.Column="2" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="CM" Tag="CM" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Width="50" Height="50"  HorizontalAlignment="Right" Content="LB" Tag="LB" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+                <Button Grid.Column="1" Width="50" Height="50" Content="CB" Tag="CB" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+                <Button Grid.Column="2" Width="50" Height="50" Content="CB" Tag="CB" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+                <Button Grid.Column="3" Width="50" Height="50" HorizontalAlignment="Left" Content="RB" Tag="RB" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Button Width="50" Height="50" VerticalAlignment="Top" Content="GK" Tag="GK" FontSize="20" MouseRightButtonUp="PositionButton_RightClick" Click="Bt_filter"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="Name" HorizontalAlignment="Center"/>
+                <Label Grid.Column="1" Content="Position" HorizontalAlignment="Right"/>
+                <Label Grid.Column="2" Content="Number" HorizontalAlignment="Center"/>
+                <Label Grid.Column="3" Content="Age" />
+            </Grid>
+
+
+            <Grid Grid.Row="1">
+
+                <ListBox x:Name="PlayerList"
+                 ItemsSource="{Binding Players}"
+                 SelectedItem="{Binding SelectedPlayer}"
+                 Grid.Column="0"
+                 Margin="0,0,10,0" BorderBrush="Black">
+
+                    <ListBox.ItemTemplate >
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1">
+                                <StackPanel Orientation="Horizontal" Margin="5" Width="230">
+                                    <TextBlock Text="{Binding Name}" Width="100" />
+                                    <TextBlock Text="{Binding Position}" Width="50" />
+                                    <TextBlock Text="{Binding Number}" Width="50" />
+                                    <TextBlock Text="{Binding Age}" Width="50" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Content="Add player" FontSize="20" Click="Bt_add"/>
+                <Button Grid.Row="1" Content="Remove player" FontSize="20" Click="Bt_remove"/>
+                <Button Grid.Row="2" Content="Exit" FontSize="20" Click="Bt_exit"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

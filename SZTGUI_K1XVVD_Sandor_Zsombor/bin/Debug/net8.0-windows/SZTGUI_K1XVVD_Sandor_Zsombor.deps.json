@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SZTGUI_K1XVVD_Sandor_Zsombor/1.0.0": {
+        "runtime": {
+          "SZTGUI_K1XVVD_Sandor_Zsombor.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SZTGUI_K1XVVD_Sandor_Zsombor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
