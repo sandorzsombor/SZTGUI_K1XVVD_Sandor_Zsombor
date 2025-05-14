@@ -34,7 +34,16 @@ namespace SZTGUI_K1XVVD_Sandor_Zsombor
 
         private void Bt_add(object sender, RoutedEventArgs e)
         {
-            
+            AddPlayer addPlayer = new AddPlayer();
+
+            if (addPlayer.ShowDialog() == true)
+            {
+                if (addPlayer.DataContext is AddPlayerViewModel addP)
+                {
+                    Player newPlayer = addP.Player;
+                    this.viewModel.Add(newPlayer);
+                }
+            }
         }
 
         private void Bt_filter(object sender, RoutedEventArgs e)
@@ -44,17 +53,26 @@ namespace SZTGUI_K1XVVD_Sandor_Zsombor
 
         private void PositionButton_RightClick(object sender, MouseButtonEventArgs e)
         {
-           
+            if (sender is Button button)
+            {
+
+                // Ha volt hozzárendelt játékos ehhez a gombhoz
+                if (buttonPlayerMap.ContainsKey(button))
+                {
+                    buttonPlayerMap.Remove(button);
+                    button.Content = button.Tag?.ToString() ?? "Válassz"; // Alap szöveg visszaállítás
+                }
+            }
         }
 
         private void Bt_remove(object sender, RoutedEventArgs e)
         {
-            
+            viewModel.Players.Remove(viewModel.SelectedPlayer);
         }
 
         private void Bt_exit(object sender, RoutedEventArgs e)
         {
-            
+            this.Close();
         }
     }
 }

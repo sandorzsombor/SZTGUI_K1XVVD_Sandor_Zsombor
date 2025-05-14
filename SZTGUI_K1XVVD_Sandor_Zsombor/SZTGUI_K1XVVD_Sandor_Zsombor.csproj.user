@@ -7,11 +7,17 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddPlayer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Field.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddPlayer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Field.xaml">
       <SubType>Designer</SubType>
     </Page>
