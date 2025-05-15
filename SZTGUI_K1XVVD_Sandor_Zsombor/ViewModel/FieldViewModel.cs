@@ -14,62 +14,6 @@ namespace SZTGUI_K1XVVD_Sandor_Zsombor.ViewModel
     public class FieldViewModel : INotifyPropertyChanged
     {
 
-        private string name;
-        private int age;
-        private string position;
-        private int number;
-        public string Name
-        {
-            get => name;
-            set
-            {
-                if (name != value)
-                {
-                    name = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public int Age
-        {
-            get => age;
-            set
-            {
-                if (age != value)
-                {
-                    age = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public string Position
-        {
-            get => position;
-            set
-            {
-                if (position != value)
-                {
-                    position = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        public int Number
-        {
-            get => number;
-            set
-            {
-                if (number != value)
-                {
-                    number = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private Player? selectedPlayer;
         public Player? SelectedPlayer
         {
@@ -178,20 +122,6 @@ namespace SZTGUI_K1XVVD_Sandor_Zsombor.ViewModel
 
             Players.Add(player);
             return true;
-        }
-
-
-
-        public FieldViewModel(IEnumerable<Player> allPlayers, string position)
-        {
-            Players = new ObservableCollection<Player>(
-                allPlayers.Where(p => p.Position == position)
-            );
-        }
-
-        public void Remove(Player _player)
-        {
-            Players.Remove(_player);
         }
     }
 }
