@@ -24,3 +24,5 @@ C:\Users\ADMIN\source\repos\SZTGUI_K1XVVD_Sandor_Zsombor\SZTGUI_K1XVVD_Sandor_Zs
 C:\Users\ADMIN\source\repos\SZTGUI_K1XVVD_Sandor_Zsombor\SZTGUI_K1XVVD_Sandor_Zsombor\obj\Debug\net8.0-windows\ref\SZTGUI_K1XVVD_Sandor_Zsombor.dll
 C:\Users\ADMIN\source\repos\SZTGUI_K1XVVD_Sandor_Zsombor\SZTGUI_K1XVVD_Sandor_Zsombor\obj\Debug\net8.0-windows\AddPlayer.g.cs
 C:\Users\ADMIN\source\repos\SZTGUI_K1XVVD_Sandor_Zsombor\SZTGUI_K1XVVD_Sandor_Zsombor\obj\Debug\net8.0-windows\AddPlayer.baml
+C:\Users\ADMIN\source\repos\SZTGUI_K1XVVD_Sandor_Zsombor\SZTGUI_K1XVVD_Sandor_Zsombor\obj\Debug\net8.0-windows\Building.g.cs
+C:\Users\ADMIN\source\repos\SZTGUI_K1XVVD_Sandor_Zsombor\SZTGUI_K1XVVD_Sandor_Zsombor\obj\Debug\net8.0-windows\Building.baml

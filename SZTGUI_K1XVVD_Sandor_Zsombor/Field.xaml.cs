@@ -48,7 +48,32 @@ namespace SZTGUI_K1XVVD_Sandor_Zsombor
 
         private void Bt_filter(object sender, RoutedEventArgs e)
         {
-            
+            if (sender is Button button)
+            {
+                string selectedPosition = button.Tag.ToString(); // FONTOS: a Content helyett a Tag!
+                var alreadySelectedNumbers = buttonPlayerMap.Values.Select(p => p.Number);
+
+                var viewModelForFiltered = new BuildingViewModel(viewModel.Players, selectedPosition, alreadySelectedNumbers);
+
+                if (viewModelForFiltered.FilteredPlayers.Count == 0)
+                {
+                    MessageBox.Show("Nincs ilyen pozíción játszó játékosod, adj hozzá egyet!", "HIBA", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    var filteredWindow = new Building(viewModel.Players, selectedPosition, alreadySelectedNumbers);
+                    if (filteredWindow.ShowDialog() == true)
+                    {
+                        var selectedPlayer = filteredWindow.SelectedPlayer;
+                        if (selectedPlayer != null)
+                        {
+                            button.Content = selectedPlayer.Name;
+                            buttonPlayerMap[button] = selectedPlayer;
+                        }
+                    }
+                }
+            }
+
         }
 
         private void PositionButton_RightClick(object sender, MouseButtonEventArgs e)
